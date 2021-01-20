@@ -1,7 +1,5 @@
 import {action, makeObservable, observable} from "mobx";
 import Network from "../../services/Network";
-import {Redirect, Route, Switch} from "react-router-dom";
-import React from "react";
 
 
 class AuthStore {
@@ -53,14 +51,12 @@ class AuthStore {
             console.log(e)
         }
         window.location.reload()
-        (<Redirect to='/tasks'/>)
     };
 
     @action
     logOut = () => {
          localStorage.removeItem('token')
         window.location.reload()
-        (<Redirect to='/home'/>)
     }
 }
 

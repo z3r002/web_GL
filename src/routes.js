@@ -11,34 +11,19 @@ export const useRoutes = isAuth => {
     if (isAuth) {
         return (
             <Switch>
-                <Route path='/tasks' component={TaskPage} exact>
-                    {/*<Route path={"/"} component={TaskPage}/>*/}
-                    {/*<Route path={"/show/:id"} component={TaskPage}/>*/}
-                </Route>
-                <Route path='/home' exact>
-                    <HomePage/>
-                </Route>
-                <Route path='/login' exact>
-                    <IsAuthPage/>
-                </Route>
+                <Route path='/tasks' component={TaskPage} exact/>
+                <Route path='/home' component={HomePage} exact/>
+                <Route path='/login' component={IsAuthPage} exact/>
                 <Redirect to='/tasks'/>
             </Switch>
         )
     }
     return (
         <Switch>
-            <Route path='/home' exact>
-                <HomePage/>
-            </Route>
-            <Route path='/reg' exact>
-                <RegPage/>
-            </Route>
-            <Route path='/login' exact>
-                <AuthPage/>
-            </Route>
-            <Route path='/tasks' exact>
-                <AuthPage/>
-            </Route>
+            <Route path='/home' component={HomePage} exact/>
+            <Route path='/reg' component={RegPage} exact/>
+            <Route path='/login' component={AuthPage} exact/>
+            <Route path='/tasks' component={AuthPage} exact/>
             <Redirect to='/home'/>
         </Switch>
     )

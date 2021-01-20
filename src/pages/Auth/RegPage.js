@@ -4,8 +4,8 @@ import {inject, observer} from "mobx-react";
 import {NavLink} from "react-router-dom";
 
 
-export const RegPage = inject('store')(observer((props) => {
-    const Input = (name, type='text') =>  <input value={props.store.authStore.valuesAuth[name]} name={name} onChange={props.store.authStore.setValues}
+export const RegPage = inject('auth')(observer((props) => {
+    const Input = (name, type='text') =>  <input value={props.auth.valuesAuth[name]} name={name} onChange={props.auth.setValues}
                                                  type={type} className='input'   placeholder={name}/>
     return (
         <>
@@ -15,7 +15,7 @@ export const RegPage = inject('store')(observer((props) => {
                 {Input('username')}
                 {Input('password', 'password')}
 
-                <button onClick={props.store.authStore.sendReg} className="button">Зарегистрироваться</button>
+                <button onClick={props.auth.sendReg} className="button">Зарегистрироваться</button>
                 <NavLink className='new_account'  to='/login'>Уже есть аккаунт?</NavLink>
 
             </form>
